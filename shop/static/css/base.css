@@ -164,6 +164,14 @@ ul.errorlist {
 #subheader .cart {
     float:right;
     padding-top:4px;
+    margin-right: 10px;              /* Adds 10 pixels of margin to the right side */
+    background-color: #f8f9fa;       /* Sets a light background color */
+    border: 1px solid #dee2e6;       /* Adds a light gray border */
+    border-radius: 5px;              /* Rounds the corners of the element */
+    font-size: 14px;                 /* Sets the font size to 14 pixels */
+    color: #343a40;                  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+    padding: 10px;
 }
 
 #content {
