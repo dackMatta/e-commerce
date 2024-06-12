@@ -15,12 +15,4 @@ Welcome to our fashion e-commerce shop! This project is built using Django, and 
 
 We welcome contributions! If you'd like to improve this project, feel free to submit a pull request.
 
-## License
 
-This project is licensed under the MIT License. See LICENSE for details.
-
-## Contact
-
-Feel free to reach out to us at contact@example.com if you have any questions or feedback!
-
-Happy shopping! 🛍️
