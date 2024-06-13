@@ -1,10 +1,13 @@
 from django.db import models
-from shop.models import Product
+from shop.models import Product,Supplier
 
 
 # Create your models here.
 
 class Order(models.Model):
+    supplier = models.ForeignKey(Supplier, related_name='product_supplier', on_delete=models.CASCADE,null=True,
+                                 blank=True)
+    
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
     email=models.EmailField()

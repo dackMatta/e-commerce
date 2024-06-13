@@ -1,14 +1,22 @@
 from django.db import models
 from django.urls import reverse
-# Create your models here.
+
+class Supplier(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    email = models.EmailField(max_length=254, blank=True)
+    phone_number = models.CharField(max_length=20, blank=True)
+    city = models.CharField(max_length=50, blank=True)
+
+    def __str__(self):
+        return self.name
+
 class Category(models.Model):
-    name=models.CharField(max_length=200)
-    slug=models.SlugField(max_length=200,
-                          unique=True)
-    
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True)
+
     class Meta:
-        ordering=['name']
-        indexes=[
+        ordering = ['name']
+        indexes = [
             models.Index(fields=['name']),
         ]
         verbose_name = 'Category'
@@ -16,38 +24,32 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_absolute_url(self):
-        return reverse('shop:product_list_by_category',
-                        args=[self.slug])
-    
+        return reverse('shop:product_list_by_category', args=[self.slug])
+
 class Product(models.Model):
-    Category=models.ForeignKey(Category,
-                               related_name='products',
-                               on_delete=models.CASCADE)
-    name=models.CharField(max_length=200)
-    slug=models.SlugField(max_length=200)
-    image=models.ImageField(upload_to='products/%Y/%m/%d',
-                            blank=True)
-    description=models.TextField(blank=True)
-    price=models.DecimalField(max_digits=10,
-                              decimal_places=2)
-    available=models.BooleanField(default=True)
-    created=models.DateTimeField(auto_now_add=True)
-    updated=models.DateTimeField(auto_now=True)
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+    supplier = models.ManyToManyField(Supplier)                      
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200)
+    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+    description = models.TextField(blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    available = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering=['name']
-        indexes=[
-            models.Index(fields=['id','slug']),
+        ordering = ['name']
+        indexes = [
+            models.Index(fields=['id', 'slug']),
             models.Index(fields=['name']),
             models.Index(fields=['-created']),
         ]
 
     def __str__(self):
         return self.name
-    
-    def get_absolute_url(self):
-        return reverse('shop:product_detail',
-                        args=[self.id,self.slug])
 
+    def get_absolute_url(self):
+        return reverse('shop:product_detail', args=[self.id, self.slug])
