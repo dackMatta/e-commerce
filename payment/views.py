@@ -18,7 +18,7 @@ def payment_process(request):
         success_url=request.build_absolute_uri(
             reverse('payment:payment_completed'))
         cancel_url=request.build_absolute_uri(
-            reverse('payment:payment_process'))
+            reverse('payment:payment_canceled'))
         
         # stripe checkout session data
         session_data={
