@@ -143,6 +143,7 @@ ul.errorlist {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     font-size: 1.2em;              /* Slightly larger font size */
     line-height: 1.5; 
+    float: right;
 }
 @media (max-width: 768px) {
     #subheader {

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,9 @@ CART_SESSION_ID = 'cart'
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 1
+
+#stripe settings
+
+STRIPE_PUBLIC_KEY = 'pk_test_51PbHO8LnT8zpFrkKuUfgdQ9JJTxCLinUSLqsiN3Z1LPZtgjw1UF7NOSGSzAIDhdpQJXpQVDb6JJIM8RKsNOu9IJ000GYVLSxuQ'
+STRIPE_SECRET_KEY = 'sk_test_51PbHO8LnT8zpFrkKCJyMolqB1owM4J3P0PmKXtjIumgtSuZASioaK83JJnbmDAvm7ZCVjJOhTIrsoHgaIog6Vey600PHMrFM4P'
+STRIPE_API_VERSION = '2022-08-01'
