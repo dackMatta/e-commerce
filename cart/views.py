@@ -4,6 +4,7 @@ from shop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
 from shop.recommender import Recommender
+from coupons.forms import CouponApplyForm
 
 
 # Create your views here.
@@ -26,30 +27,14 @@ def cart_remove(request, product_id):
     cart.remove(product)
     return redirect('cart:cart_detail')
 
-def cart_detaiiil(request):
-    cart=Cart(request)
-    for item in cart:
-        item['update_quantity_form']=CartAddProductForm(initial={'quantity':item['quantity'],'override':True})
-
-    r=Recommender
-    cart_products=[item['product'] for item in cart]
-    if(cart_products):
-        recommended_products=r.suggest_products_for(
-            cart_products,
-            max_results=4
-        )
-
-    else:
-        recommended_products=[]
-    return render(request,'cart/detail.html',{'cart':cart,
-                                              'recommended_products':recommended_products})
-
 
 def cart_detail(request):
     cart = Cart(request)
     for item in cart:
-        item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 'override': True})
+        item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 
+                                                                   'override': True})
     
+    coupon_apply_form=CouponApplyForm()
     r = Recommender()  # Create an instance of the Recommender class
 
     cart_products = [item['product'] for item in cart]
@@ -61,4 +46,7 @@ def cart_detail(request):
             max_results=4
         )
 
-    return render(request, 'cart/detail.html', {'cart': cart, 'recommended_products': recommended_products})
+    return render(request, 'cart/detail.html',
+                   {'cart': cart,
+                    'coupon_apply_form':coupon_apply_form,
+                      'recommended_products': recommended_products})
