@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from stripe_credentials import SECRET_KEY,API_VERSION,PUBLIC_KEY
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -141,7 +142,6 @@ REDIS_PORT = 6379
 REDIS_DB = 1
 
 #stripe settings
-
-STRIPE_PUBLIC_KEY = 'pk_test_51PbHO8LnT8zpFrkKuUfgdQ9JJTxCLinUSLqsiN3Z1LPZtgjw1UF7NOSGSzAIDhdpQJXpQVDb6JJIM8RKsNOu9IJ000GYVLSxuQ'
-STRIPE_SECRET_KEY = 'sk_test_51PbHO8LnT8zpFrkKCJyMolqB1owM4J3P0PmKXtjIumgtSuZASioaK83JJnbmDAvm7ZCVjJOhTIrsoHgaIog6Vey600PHMrFM4P'
-STRIPE_API_VERSION = '2022-08-01'
+STRIPE_PUBLIC_KEY=PUBLIC_KEY
+STRIPE_SECRET_KEY=SECRET_KEY
+STRIPE_API_VERSION=API_VERSION
