@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Conversation{% endblock %}
+
+{% block content %}
+<h1>Conversation</h1>
+<div class="#">
+{% for message in conversation.message.all %}
+    <div class="message">
+        <div>
+        <p><strong>{{ message.created_by.username }}</strong>@{{ message.created_at }}</p>
+        <p>{{ message.content }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<form action="." method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn">Send</button>
+</form>
+
+{% endblock %}
