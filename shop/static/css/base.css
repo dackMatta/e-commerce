@@ -1,0 +1,370 @@
+@import url(//fonts.googleapis.com/css?family=Ubuntu);
+
+body {
+    margin:0;
+    padding:0;
+    font-family:helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+    box-sizing: border-box;
+    cursor: default; /* or url('path/to/cursor.png'), auto; */
+    background-color: #f5f5f5;
+}
+
+h1, h2, h3, h4, h5 , h6 {
+    font-family: 'Ubuntu', sans-serif; font-weight:normal;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    text-decoration:none;
+    color:#5993bb;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color:#068c9e;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+a.button, input[type="submit"] {
+    color:#fff;
+    background:#5993bb;
+    border-radius:4px;
+    padding:10px 20px;
+    font-size:14px;
+    border:0;
+}
+
+a.button.light {
+    color:#666;
+    background:#ededed;
+}
+
+.text-left {
+    text-align:left;
+}
+
+.text-right {
+    text-align:right;
+}
+
+table {
+    width:100%;
+    border-spacing:0;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    text-align:left;
+    font-size:14px;
+    padding:10px;
+    margin:0;
+}
+
+tbody tr:nth-child(odd) {
+    background:#efefef;
+}
+
+tbody tr.subtotal {
+    background:#ccc;
+}
+
+thead th, tbody tr.total {
+    background:#5993bb;
+    color:#fff;
+    font-weight:bold;
+}
+
+table.cart {
+    margin-bottom:40px;
+}
+
+table.cart img {
+    width:180px;
+}
+
+tbody td.num {
+    text-align:right;
+}
+
+td input[type="submit"] {
+    font-size:12px;
+    padding:4px 10px;
+}
+
+form p label, form p input {
+    float:left;
+    clear:both;
+}
+
+form p label {
+    font-size:14px;
+    padding-bottom:4px;
+}
+
+form p input {
+    width:300px;
+    font-size:13px;
+    margin-bottom:10px;
+    padding:10px 12px;
+    border:0;
+    background:#efefef;
+    color:#666;
+    border-radius:4px;
+}
+
+ul.errorlist {
+   float:left;
+   color:#ff0000;
+   clear:both;
+   font-size:13px;
+   margin:0 0 0 10px;
+   padding:10px 0;
+}
+
+
+#header {
+    padding:10px 100px;
+    font-size:18px;
+    overflow:auto;
+}
+
+#subheader {
+    background:#ececec;
+    color:#444;
+    padding:15px 100px;
+    overflow:auto;
+    display: flex;                 /* Flexbox for layout */
+    align-items: center;           /* Vertically centers items */
+    justify-content: space-between; /* Distributes space between items */
+    border-radius: 5px;            /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-size: 1.2em;              /* Slightly larger font size */
+    line-height: 1.5; 
+    float: right;
+}
+@media (max-width: 768px) {
+    #subheader {
+        padding: 15px 20px;       /* Adjusts padding for smaller screens */
+        flex-direction: column;   /* Stacks items vertically on smaller screens */
+        align-items: flex-start;  /* Aligns items to the start */
+    }
+}
+
+#header .logo {
+    font-family: 'Ubuntu', sans-serif;
+    float:left;
+    color:#0a0909;
+    font-size:22px;
+    margin-right:10%;
+    transition: color 0.3s ease;
+}
+
+#subheader .cart {
+    float:right;
+    padding-top:4px;
+    margin-right: 10px;              /* Adds 10 pixels of margin to the right side */
+    background-color: #f8f9fa;       /* Sets a light background color */
+    border: 1px solid #dee2e6;       /* Adds a light gray border */
+    border-radius: 5px;              /* Rounds the corners of the element */
+    font-size: 14px;                 /* Sets the font size to 14 pixels */
+    color: #343a40;                  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+    padding: 10px;
+}
+
+#content {
+    padding:0 100px;
+    overflow:hidden;
+}
+
+#sidebar {
+    width:220px;
+    padding:30px 20px 0 0;
+    float:left;
+}
+
+#sidebar ul{
+    margin:0;
+    padding:0;
+}
+
+#sidebar ul li {
+    margin:0;
+    list-style:none;
+    padding:10px 14px;
+}
+
+#sidebar ul li a {
+    display:block;
+}
+
+#sidebar ul li.selected {
+    background:#5993bb;
+    border-radius:4px;
+}
+
+#sidebar ul li.selected a {
+    color:#fff;
+}
+
+#main {
+    float:left;
+    width: 96%;
+    margin-right:-220px;
+    overflow:hidden;
+}
+
+.product-list .item {
+    width:25%;
+    padding:10px 20px 10px 0;
+    float:left;
+    text-align:center;
+    line-height:1.2;
+}
+
+.product-list .item img {
+    width:100%;
+    margin-bottom:8px;
+}
+
+.product-detail {
+    text-align:justify;
+}
+
+.product-detail .price {
+    color:#333;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.product-detail img {
+    width:40%;
+    float:left;
+    padding:0 20px 20px 0;
+}
+
+.product-detail h1 {
+    margin-bottom:0;
+}
+
+.product-detail h2 {
+    margin-top:10px;
+}
+
+.order-form {
+    float:left;
+}
+
+.order-info {
+    float:right;
+    width:300px;
+    background:#efefef;
+    padding:10px 20px;
+    color:#333;
+    border-bottom:4px solid #5993bb;
+}
+
+.order-info h3 {
+    color:#5993bb;
+}
+
+.order-info ul li {
+    margin:0;
+    padding:0;
+    font-size:14px;
+}
+
+.order-info p {
+    font-weight:bold;
+    float:right;
+}
+
+.order-info span {
+    float:right;
+}
+
+.neg {
+    color:#dc1616;
+}
+
+.languages {
+   float:right;
+   padding-top:4px;
+   font-size:14px;
+}
+
+.languages ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+    float:left;
+}
+
+.languages ul li {
+    float:left;
+    margin:0 0 0 10px;
+    font-size:14px;
+}
+
+.languages p {
+    float:left;
+    margin:0;
+}
+
+.recommendations {
+    clear:both;
+}
+
+.recommendations div {
+    float:left;
+}
+
+.recommendations img {
+    width:200px
+}
+
+.recommendations p {
+    clear:both;
+}
+
+.recommendations.cart {
+    width:60%;
+    float:left;
+    overflow:auto;
+}
+
+.recommendations.cart h3 {
+    margin-top:0;
+}
+
+.recommendations.cart .item {
+    margin-right:10px;
+}
+
+.recommendations.cart img {
+    width:120px;
+}
+
+/* braintree hosted fields */
+form div.field {
+    font-size:13px;
+    color:#666;
+    width:300px;
+    height:22px;
+    margin-bottom:10px;
+    padding:6px 12px;
+    border:0;
+    background:#efefef;
+    color:#666;
+    border-radius:4px;
+}
+
+@media (max-width: 768px) {
+    a.button-link {
+        padding: 8px 16px; /* Adjusts padding for smaller screens */
+        font-size: 14px;   /* Adjusts font size for smaller screens */
+    }
+}

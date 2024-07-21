@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{ suppliers.name }}{% endblock %}
+{% block content %}
+
+    <h1>Choose your product Suppliers</h1>
+
+    <form method="get">
+        <label for="name">Filter by name:</label>
+        <input type="text" id="name" name="name" value="{{ name_filter|default:'' }}">
+        <button type="submit">Filter</button>
+
+        <label for="sort">Sort by:</label>
+        <select id="sort" name="sort" onchange="this.form.submit()">
+            <option value="name" {% if sort_by == 'name' %}selected{% endif %}>Name</option>
+        </select>
+    </form>
+
+    <ul>
+        {% for supplier in suppliers %}
+            <li>{{ supplier.name }} - {{ supplier.contact_info }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
