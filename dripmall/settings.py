@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from stripe_credentials import SECRET_KEY,API_VERSION,PUBLIC_KEY
+from dripmall.stripe_credential import SECRET_KEY,API_VERSION,PUBLIC_KEY
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
